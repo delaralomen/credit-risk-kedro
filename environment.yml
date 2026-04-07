@@ -1,0 +1,7 @@
+name: credit-risk-kedro
+channels:
+  - defaults
+dependencies:
+  - python=3.12.9
+  - kedro
+prefix: /opt/homebrew/anaconda3/envs/credit-risk-kedro
