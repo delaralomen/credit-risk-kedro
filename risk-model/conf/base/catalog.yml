@@ -6,3 +6,13 @@
 # Data Preprocessing
 download_status:
   type: MemoryDataset
+
+# Data Processing
+raw_loans:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/accepted_2007_to_2018Q4.csv
+
+
+clean_loans:
+  type: pandas.CSVDataset
+  filepath: data/02_intermediate/clean_loans.csv
