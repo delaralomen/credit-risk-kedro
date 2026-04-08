@@ -1,16 +1,6 @@
 # Credit Risk Modeling Using Kedro Pipeline
 
-## Install Dependencies
-
-```bash
-conda env create -f environment.yml
-```
-
-## Start Pipeline
-
-```bash
-conda run
-```
+This project is an end-to-end credit risk modeling system built with [Kedro](https://kedro.org/), an open-source framework for data engineering and data science code, created by QuantumBlack Labs, AI at McKinsey.
 
 ## Dataset
 LendingClub, the loan information dataset used in this project, can be found [here](https://www.kaggle.com/datasets/wordsforthewise/lending-club).
@@ -32,8 +22,15 @@ chmod 600 ~/.kaggle/kaggle.json
 
 ## Project Structure
 ```
-raw loans → clean loans → feature engineering → model input → predictions
+raw loans → clean loans → feature engineering → model training → predictions
 ```
+
+## Install Dependencies
+
+```bash
+conda env create -f environment.yml
+```
+
 
 ## Data Ingestion
 
@@ -49,7 +46,7 @@ kedro pipeline create data_ingestion
 kedro run --pipeline=data_ingestion
 ```
 
-**3. Check out the downloaded files**
+**3. Check out the new data files**
 
 ```bash
 ls data/01_raw/
@@ -83,7 +80,7 @@ kedro pipeline create data_processing
 kedro run --pipeline=data_processing
 ```
 
-**3. Check out the downloaded files**
+**3. Check out the new data files**
 
 ```bash
 ls data/02_intermediate/
@@ -104,8 +101,23 @@ kedro pipeline create feature_engineering
 kedro run --pipeline=feature_engineering
 ```
 
-**3. Check out the downloaded files**
+**3. Check out the new data files**
 
 ```bash
 ls data/04_feature/
+```
+
+## Model Training
+
+
+**1. Create the pipeline**
+
+```bash
+kedro pipeline create model_training
+```
+
+**2. Run the pipeline**
+
+```bash
+kedro run --pipeline=model_training
 ```
