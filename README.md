@@ -107,23 +107,13 @@ kedro run --pipeline=feature_engineering
 ls data/03_primary/
 ```
 
-## Feature Importance
 
+## Models trained
 
-**1. Create the pipeline**
+1. Logistic regression
+2. XGBoost
 
+They can be found using
 ```bash
-kedro pipeline create feature_importance
-```
-
-**2. Run the pipeline**
-
-```bash
-kedro run --pipeline=feature_importance
-```
-
-**3. Check out the new model**
-
-```bash
-ls data/04_feature/
+ls data/06_models/
 ```
