@@ -12,7 +12,7 @@ def create_pipeline(**kwargs):
         node(
             func=train_model,
             inputs="features",
-            outputs="feature_importance_model",
+            outputs="log_reg_model",
             name="feature_importance_node",
         )
     ])
