@@ -13,7 +13,7 @@ conda run
 ```
 
 ## Dataset
-LendingClub, the dataset used in this project, can be found [here](https://www.kaggle.com/datasets/wordsforthewise/lending-club).
+LendingClub, the loan information dataset used in this project, can be found [here](https://www.kaggle.com/datasets/wordsforthewise/lending-club).
 
 To reproduce this project, you need a Kaggle API key configured on your system (typically placed in `~/.kaggle/kaggle.json`) with the correct structure and permissions.
 
@@ -30,6 +30,10 @@ To reproduce this project, you need a Kaggle API key configured on your system (
 chmod 600 ~/.kaggle/kaggle.json
 ```
 
+## Project Structure
+```
+raw loans → clean loans → feature engineering → model input → predictions
+```
 
 ## Data Ingestion
 
@@ -66,6 +70,7 @@ kedro jupyter notebook
 ```
 
 Afterwards:
+
 **1. Create the pipeline**
 
 ```bash
@@ -82,4 +87,25 @@ kedro run --pipeline=data_processing
 
 ```bash
 ls data/02_intermediate/
+```
+
+## Feature Engineering
+
+
+**1. Create the pipeline**
+
+```bash
+kedro pipeline create feature_engineering
+```
+
+**2. Run the pipeline**
+
+```bash
+kedro run --pipeline=feature_engineering
+```
+
+**3. Check out the downloaded files**
+
+```bash
+ls data/04_feature/
 ```
