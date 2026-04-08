@@ -48,6 +48,38 @@ kedro run --pipeline=data_ingestion
 **3. Check out the downloaded files**
 
 ```bash
-ls data/raw/
+ls data/01_raw/
 ```
 
+## Data Processing
+
+Inside the project directory (`./risk-model` here), run the following:
+
+```bash
+pip install -r requirements.txt && pip install "kedro[pandas]"
+```
+
+Next, we can check the data out using `pandas` in a Jupyter Notebook.
+
+```bash
+kedro jupyter notebook
+```
+
+Afterwards:
+**1. Create the pipeline**
+
+```bash
+kedro pipeline create data_processing
+```
+
+**2. Run the pipeline**
+
+```bash
+kedro run --pipeline=data_processing
+```
+
+**3. Check out the downloaded files**
+
+```bash
+ls data/02_intermediate/
+```
