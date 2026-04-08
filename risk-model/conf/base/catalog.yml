@@ -16,3 +16,8 @@ raw_loans:
 clean_loans:
   type: pandas.CSVDataset
   filepath: data/02_intermediate/clean_loans.csv
+
+
+feature_loans:
+  type: pandas.CSVDataset
+  filepath: data/04_feature/feature_loans.csv
