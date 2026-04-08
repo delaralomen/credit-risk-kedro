@@ -12,7 +12,7 @@ def create_pipeline(**kwargs):
         node(
             func=create_features,
             inputs="clean_loans",
-            outputs="feature_loans",
-            name="feature_eng_node",
+            outputs="features",
+            name="primary_data_node",
         )
     ])

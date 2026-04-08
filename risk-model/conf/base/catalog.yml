@@ -18,6 +18,15 @@ clean_loans:
   filepath: data/02_intermediate/clean_loans.csv
 
 
-feature_loans:
+features:
   type: pandas.CSVDataset
-  filepath: data/04_feature/feature_loans.csv
+  filepath: data/03_primary/primary_loans.csv
+
+
+feature_importance_model:
+  type: pickle.PickleDataset
+  filepath: data/04_feature/feature_importance.pkl
+
+# model:
+#   type: pickle.PickleDataset
+#   filepath: data/05_model_input/model.pkl
