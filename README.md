@@ -1,6 +1,6 @@
 # Credit Risk Modeling Using Kedro Pipeline
 
-This project is an end-to-end credit risk modeling system built with [Kedro](https://kedro.org/), an open-source framework for data engineering and data science code, created by QuantumBlack Labs, AI at McKinsey.
+This project is an end-to-end credit risk modeling system built with [Kedro](https://kedro.org/), an open-source framework for data engineering and data science code, created by QuantumBlack Labs AI at McKinsey.
 
 ## Dataset
 LendingClub, the loan information dataset used in this project, can be found [here](https://www.kaggle.com/datasets/wordsforthewise/lending-club).
@@ -20,9 +20,9 @@ To reproduce this project, you need a Kaggle API key configured on your system (
 chmod 600 ~/.kaggle/kaggle.json
 ```
 
-## Project Structure
+## Data Progression
 ```
-raw loans → clean loans → feature engineering → model training → predictions
+Raw Data → Clean Data → Features → Model → Evaluation → Output
 ```
 
 ## Install Dependencies
@@ -104,20 +104,26 @@ kedro run --pipeline=feature_engineering
 **3. Check out the new data files**
 
 ```bash
-ls data/04_feature/
+ls data/03_primary/
 ```
 
-## Model Training
+## Feature Importance
 
 
 **1. Create the pipeline**
 
 ```bash
-kedro pipeline create model_training
+kedro pipeline create feature_importance
 ```
 
 **2. Run the pipeline**
 
 ```bash
-kedro run --pipeline=model_training
+kedro run --pipeline=feature_importance
+```
+
+**3. Check out the new model**
+
+```bash
+ls data/04_feature/
 ```
