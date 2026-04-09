@@ -76,4 +76,6 @@ kedro jupyter notebook
 ```
 
 
+## Important Note
 
+All `kedro` commands are run from the Kedro project directory (`./risk-model`).
