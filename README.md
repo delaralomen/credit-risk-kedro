@@ -47,7 +47,7 @@ The project currently consists of 7 different steps (pipelines):
 6. XGBoost
 7. Model Evaluation
 
-Pipelines used in this project can be found in `src/risk-model/`. Each of them was created using:
+Pipelines used in this project can be found in `./risk-model/src/risk-model/pipelines`. Each of them was created using:
 
 ```bash
 kedro pipeline create <pipeline_name>
