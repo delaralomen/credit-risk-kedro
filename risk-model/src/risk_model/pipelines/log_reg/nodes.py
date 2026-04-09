@@ -6,8 +6,8 @@ from sklearn.linear_model import LogisticRegression
 import pandas as pd
 
 
-def train_model(X_train: pd.DataFrame, y_train: pd.DataFrame):
-    model = LogisticRegression(max_iter=1000)
+def train_model(X_train: pd.DataFrame, y_train: pd.DataFrame, params):
+    model = LogisticRegression(**params)
     model.fit(X_train, y_train)
 
     return model
