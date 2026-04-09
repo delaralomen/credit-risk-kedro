@@ -70,7 +70,7 @@ The functionality of each step/pipeline (also known as a *node*) is defined in `
 
 ## Notebooks
 
-Aside from creating a pipeline, we can use notebooks to explore our datasets. For instance, during the data processing step, we can explore our data independently using a Jupyter notebook before building the `data_processing` pipeline (so that we don't have to run a pipeline every time, e.g. just to check the shape and columns of the dataset), as seen in `./risk-model/notebooks/data_processing.ipynb`.
+Aside from creating a pipeline, we can use notebooks to explore our datasets. For example, during the data processing step, we can explore our data independently using a Jupyter notebook before building the `data_processing` pipeline (so that we don't have to run a pipeline every time, e.g. just to check the shape and columns of the dataset), as seen in `./risk-model/notebooks/data_processing.ipynb`.
 
 To be able to run the notebook, you first need to start the Kedro Jupyter Notebook server:
 
@@ -78,6 +78,11 @@ To be able to run the notebook, you first need to start the Kedro Jupyter Notebo
 kedro jupyter notebook
 ```
 
+## Parameters
+
+Each pipeline has a corresponding parameters file in `./risk-model/conf/base`, where, for instance, model parameters which need tuning can be defined.
+
+They are fed to the node in `pipeline.py` under `inputs` using`params:<param_name>` and fed to the `node.py` as a function parameter, unpacked using `**`; example usage: `**params`.
 
 ## Important Note
 
