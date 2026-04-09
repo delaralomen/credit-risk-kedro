@@ -20,100 +20,60 @@ To reproduce this project, you need a Kaggle API key configured on your system (
 chmod 600 ~/.kaggle/kaggle.json
 ```
 
-## Data Progression
-```
-Raw Data → Clean Data → Features → Model → Evaluation → Output
-```
 
-## Install Dependencies
+## Dependencies
 
 ```bash
 conda env create -f environment.yml
 ```
 
+### Kedro Dependencies
 
-## Data Ingestion
-
-**1. Create the pipeline**
-
-```bash
-kedro pipeline create data_ingestion
-```
-
-**2. Run the pipeline**
-
-```bash
-kedro run --pipeline=data_ingestion
-```
-
-**3. Check out the new data files**
-
-```bash
-ls data/01_raw/
-```
-
-## Data Processing
-
-Inside the project directory (`./risk-model` here), run the following:
+Inside the project directory (`./risk-model`), run the following:
 
 ```bash
 pip install -r requirements.txt && pip install "kedro[pandas]"
 ```
 
-Next, we can check the data out using `pandas` in a Jupyter Notebook.
+
+## Project Structure
+
+The project currently consists of 7 different steps (pipelines):
+1. Data Ingestion
+2. Data Processing
+3. Feature Engineering
+4. Split Data
+5. Logistic Regression
+6. XGBoost
+7. Model Evaluation
+
+Pipelines used in this project can be found in `src/risk-model/`. Each of them was created using:
+
+```bash
+kedro pipeline create <pipeline_name>
+```
+
+and run using:
+
+```bash
+kedro run --pipeline=<pipeline_name>
+```
+
+The input dataset(s) and output dataset(s) of each pipeline must be first defined in the data catalog (`./risk-model/conf/base/catalog.yml`).
+
+
+The input dataset(s), output dataset(s), and functions used in each pipeline are set in `./risk-model/src/risk-model/pipelines/<pipeline_name>/pipeline.py`.
+
+
+## Notebooks
+
+Aside from creating a pipeline, we can use notebooks to explore our datasets. For instance, during the data processing step, we can explore our data independently using a Jupyter notebook before building the `data_processing` pipeline (so that we don't have to run a pipeline every time, e.g. just to check the shape and columns of the dataset), as seen in `./risk-model/notebooks/data_processing.ipynb`.
+
+To be able to run the notebook, you first need to start the Kedro Jupyter Notebook server:
 
 ```bash
 kedro jupyter notebook
 ```
 
-Afterwards:
-
-**1. Create the pipeline**
-
-```bash
-kedro pipeline create data_processing
-```
-
-**2. Run the pipeline**
-
-```bash
-kedro run --pipeline=data_processing
-```
-
-**3. Check out the new data files**
-
-```bash
-ls data/02_intermediate/
-```
-
-## Feature Engineering
 
 
-**1. Create the pipeline**
-
-```bash
-kedro pipeline create feature_engineering
-```
-
-**2. Run the pipeline**
-
-```bash
-kedro run --pipeline=feature_engineering
-```
-
-**3. Check out the new data files**
-
-```bash
-ls data/03_primary/
-```
-
-
-## Models trained
-
-1. Logistic regression
-2. XGBoost
-
-They can be found using
-```bash
-ls data/06_models/
-```
