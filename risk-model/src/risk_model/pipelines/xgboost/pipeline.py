@@ -6,7 +6,7 @@ def create_pipeline(**kwargs):
     return Pipeline([
         node(
             func=train_xgboost,
-            inputs="features",
+            inputs=["X_train","y_train"],
             outputs="xgb_model",
             name="train_xgb_node",
         )
