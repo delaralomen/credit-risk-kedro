@@ -12,7 +12,6 @@ raw_loans:
   type: pandas.CSVDataset
   filepath: data/01_raw/accepted_2007_to_2018Q4.csv
 
-
 clean_loans:
   type: pandas.CSVDataset
   filepath: data/02_intermediate/clean_loans.csv
@@ -21,6 +20,24 @@ clean_loans:
 features:
   type: pandas.CSVDataset
   filepath: data/03_primary/primary_loans.csv
+
+# Data Split
+X_train:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_input/X_train.parquet
+
+X_test:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_input/X_test.parquet
+
+y_train:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_input/y_train.parquet
+
+y_test:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_input/y_test.parquet
+
 
 # Linear Classifier - used for understanding feature importance
 log_reg_model:
@@ -31,3 +48,8 @@ log_reg_model:
 xgb_model:
   type: pickle.PickleDataset
   filepath: data/06_models/xgb_model.pkl
+
+# Evaluation
+model_metrics:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/model_metrics.csv
