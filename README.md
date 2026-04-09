@@ -65,6 +65,9 @@ The input dataset(s) and output dataset(s) of each pipeline must be first define
 The input dataset(s), output dataset(s), and functions used in each pipeline are set in `./risk-model/src/risk-model/pipelines/<pipeline_name>/pipeline.py`.
 
 
+The functionality of each step/pipeline (also known as a *node*) is defined `./risk-model/src/risk-model/pipelines/<pipeline_name>/node.py`.
+
+
 ## Notebooks
 
 Aside from creating a pipeline, we can use notebooks to explore our datasets. For instance, during the data processing step, we can explore our data independently using a Jupyter notebook before building the `data_processing` pipeline (so that we don't have to run a pipeline every time, e.g. just to check the shape and columns of the dataset), as seen in `./risk-model/notebooks/data_processing.ipynb`.
