@@ -1,4 +1,4 @@
-# Credit Risk Modeling Using Kedro Pipeline
+# Credit Risk Modeling Using Kedro
 
 This project is an end-to-end credit risk modeling system built with [Kedro](https://kedro.org/), an open-source framework for data engineering and data science code, created by QuantumBlack Labs AI at McKinsey.
 
@@ -65,7 +65,7 @@ The input dataset(s) and output dataset(s) of each pipeline must be first define
 The input dataset(s), output dataset(s), and functions used in each pipeline are set in `./risk-model/src/risk-model/pipelines/<pipeline_name>/pipeline.py`.
 
 
-The functionality of each step/pipeline (also known as a *node*) is defined `./risk-model/src/risk-model/pipelines/<pipeline_name>/node.py`.
+The functionality of each step/pipeline (also known as a *node*) is defined in `./risk-model/src/risk-model/pipelines/<pipeline_name>/node.py`.
 
 
 ## Notebooks
