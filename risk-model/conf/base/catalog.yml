@@ -21,6 +21,7 @@ features:
   type: pandas.CSVDataset
   filepath: data/03_primary/feature_loans.csv
 
+
 # Data Split
 X_train:
   type: pandas.ParquetDataset
@@ -55,7 +56,13 @@ predictions:
   filepath: data/07_model_output/predicted_loans.csv
 
 
-# Evaluation
+# Individual Models Evaluation
 model_metrics:
   type: pandas.CSVDataset
   filepath: data/08_reporting/model_metrics.csv
+
+
+# Cross Validation Evaluation
+cross_val_metrics:
+  type: pandas.CSVDataset
+  filepath: data/08_reporting/cross_val_metrics.csv
