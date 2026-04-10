@@ -49,7 +49,13 @@ xgb_model:
   type: pickle.PickleDataset
   filepath: data/06_models/xgb_model.pkl
 
+# Predictions
+predictions:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/predicted_loans.csv
+
+
 # Evaluation
 model_metrics:
   type: pandas.CSVDataset
-  filepath: data/07_model_output/model_metrics.csv
+  filepath: data/08_reporting/model_metrics.csv
