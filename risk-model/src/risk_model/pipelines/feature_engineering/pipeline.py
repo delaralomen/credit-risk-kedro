@@ -11,7 +11,7 @@ def create_pipeline(**kwargs):
     return Pipeline([
         node(
             func=create_features,
-            inputs="clean_loans",
+            inputs=["clean_loans","params:feature_engineering"],
             outputs="features",
             name="primary_data_node",
         )

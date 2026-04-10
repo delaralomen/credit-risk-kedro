@@ -10,7 +10,7 @@ def create_pipeline(**kwargs):
     return Pipeline([
         node(
             func=clean_loans,
-            inputs="raw_loans",
+            inputs=["raw_loans","params:data_processing"],
             outputs="clean_loans",
             name="clean_data_node",
         )

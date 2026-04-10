@@ -5,11 +5,15 @@ generated using Kedro 1.2.0
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 import pandas as pd
-
+import numpy as np
 
 def split_data(df):
     X = df.drop(columns=["target"])
     y = df["target"]
+
+    print("Any inf:", np.isinf(X).any().any())
+    print("Any NaN:", X.isna().any().any())
+    print("Max value:", X.max().max())
 
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2, random_state=42

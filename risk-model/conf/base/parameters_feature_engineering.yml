@@ -3,3 +3,8 @@
 #
 # Documentation for this file format can be found in "Parameters"
 # Link: https://docs.kedro.org/en/1.2.0/configuration/parameters.html
+
+feature_engineering:
+  use_log: true
+  use_ratios: true
+  use_interactions: false

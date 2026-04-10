@@ -19,7 +19,7 @@ clean_loans:
 # Feature Engineering
 features:
   type: pandas.CSVDataset
-  filepath: data/03_primary/primary_loans.csv
+  filepath: data/03_primary/feature_loans.csv
 
 # Data Split
 X_train:
