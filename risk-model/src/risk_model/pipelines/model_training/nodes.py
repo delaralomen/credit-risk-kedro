@@ -7,7 +7,7 @@ from xgboost import XGBClassifier
 import pandas as pd
 
 
-def train_model(X_train: pd.DataFrame, y_train: pd.DataFrame, training_params):
+def train_models(X_train: pd.DataFrame, y_train: pd.DataFrame, training_params):
     lr_model = LogisticRegression(**training_params["log_reg"])
     lr_model.fit(X_train, y_train)
 
