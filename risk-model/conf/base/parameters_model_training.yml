@@ -4,11 +4,15 @@
 # Documentation for this file format can be found in "Parameters"
 # Link: https://docs.kedro.org/en/1.2.0/configuration/parameters.html
 
-xgboost:
-  n_estimators: 200
-  max_depth: 5
-  learning_rate: 0.1
-  subsample: 0.8
-  colsample_bytree: 0.8
-  random_state: 42
-  eval_metric: logloss
+model_training:
+  log_reg:
+    max_iter: 1000
+
+  xgboost:
+    n_estimators: 200
+    max_depth: 5
+    learning_rate: 0.1
+    subsample: 0.8
+    colsample_bytree: 0.8
+    random_state: 42
+    eval_metric: logloss
