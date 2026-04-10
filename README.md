@@ -59,7 +59,7 @@ and run using:
 kedro run --pipeline=<pipeline_name>
 ```
 
-The input dataset(s) and output dataset(s) of each pipeline must be first defined in the data catalog (`./risk-model/conf/base/catalog.yml`).
+The input dataset(s) and output dataset(s) of each pipeline must first be defined in the data catalog (`./risk-model/conf/base/catalog.yml`).
 
 
 The input dataset(s), output dataset(s), and functions used in each pipeline are set in `./risk-model/src/risk-model/pipelines/<pipeline_name>/pipeline.py`.
@@ -87,3 +87,4 @@ They are fed to the node in `pipeline.py` under `inputs` using`params:<param_nam
 ## Important Note
 
 All `kedro` commands are run from the Kedro project directory (`./risk-model`).
+
