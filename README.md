@@ -90,4 +90,6 @@ All `kedro` commands are run from the Kedro project directory (`./risk-model`).
 
 ## TODO
 - adding cross-validation instead of simple split
+- creating an inference pipeline
 - adding a hyperparameter tuning pipeline
+- adding SHAP explanations
