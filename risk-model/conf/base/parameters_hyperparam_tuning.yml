@@ -1,0 +1,16 @@
+# This is a boilerplate parameters config generated for pipeline 'hyperparam_tuning'
+# using Kedro 1.2.0.
+#
+# Documentation for this file format can be found in "Parameters"
+# Link: https://docs.kedro.org/en/1.2.0/configuration/parameters.html
+
+hyperparam_tuning:
+  xgboost_search_space:
+    n_estimators: [100, 400]
+    max_depth: [3, 8]
+    learning_rate: [0.01, 0.3]
+    subsample: [0.6, 1.0]
+    colsample_bytree: [0.6, 1.0]
+
+  optuna:
+    n_trials: 20

@@ -40,15 +40,30 @@ y_test:
   filepath: data/05_model_input/y_test.parquet
 
 
-# Linear Classifier - used for understanding feature importance
+# Linear Classifier
 log_reg_model:
   type: pickle.PickleDataset
   filepath: data/06_models/log_reg.pkl
 
-# Non-linear classifier - used for optimizing the 
+# Non-linear Classifier
 xgb_model:
   type: pickle.PickleDataset
   filepath: data/06_models/xgb_model.pkl
+
+# Parameters Obtained Through Hyperparameter Tuning
+optuna_params:
+  type: pickle.PickleDataset
+  filepath: data/07_model_output/best_params.pkl
+
+# Non-linear Classifier with Hyperparameter Tuning
+xgb_optimized:
+  type: pickle.PickleDataset
+  filepath: data/06_models/xgb_model.pkl
+
+# Hyperparameter Tuning Report
+hyperparam_study:
+  type: pickle.PickleDataset
+  filepath: "data/08_reporting/hyperparam_study.pkl"
 
 # Predictions
 predictions:
@@ -66,9 +81,3 @@ model_metrics:
 cross_val_metrics:
   type: pandas.CSVDataset
   filepath: data/08_reporting/cross_val_metrics.csv
-
-
-# Test Set Evaluation
-inference_metrics:
-  type: pandas.CSVDataset
-  filepath: data/08_reporting/inference_metrics.csv
