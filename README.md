@@ -45,8 +45,9 @@ The project currently consists of 7 different steps (pipelines):
 4. Split Data
 5. Logistic Regression
 6. XGBoost
-7. Model Evaluation
-8. Cross Validation (for picking the superior model)
+7. Cross Validation (for picking the superior model)
+8. Hyperparameter Tuning
+9. Model Evaluation
 
 Pipelines used in this project can be found in `./risk-model/src/risk-model/pipelines`. Each of them was created using:
 
