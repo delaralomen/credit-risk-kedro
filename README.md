@@ -80,7 +80,7 @@ credit-risk-kedro/
 └── README.md          # This file
 ```
 
-> For detailed pipeline implementation and developer instructions, see the Kedro project README inside `risk-model/`.
+> For detailed pipeline implementation and developer instructions, see the Kedro project README inside <a href="https://github.com/delaralomen/credit-risk-kedro/tree/main/risk-model" target="_blank">`risk-model/`</a>.
 
 
 
