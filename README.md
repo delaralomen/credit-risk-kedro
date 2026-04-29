@@ -31,7 +31,9 @@ Key goals:
 
 We use SHAP (SHapley Additive exPlanations) to understand how features influence model predictions.
 
-![SHAP Summary](/img/shap_summary.png)
+<p align="center">
+  <img src="img/shap_summary.png" alt="SHAP Summary" width="500"/>
+</p>
 
 Key insights:
 
