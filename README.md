@@ -16,6 +16,7 @@ Key goals:
 
 
 
+
 ## Results
 
 | Model               | Accuracy | ROC-AUC |
@@ -41,6 +42,12 @@ Key insights:
 * Loan term and credit score also significantly influence predictions
 * Loan-to-income ratio plays a role but is less dominant
 * Several features show non-linear effects on model output
+
+
+## Dataset
+
+This project uses the LendingClub dataset available on Kaggle:
+https://www.kaggle.com/datasets/wordsforthewise/lending-club
 
 
 ## Project Workflow
@@ -90,13 +97,6 @@ credit-risk-kedro/
 * Add more advanced feature engineering
 * Experiment with additional models (e.g., LightGBM, neural networks)
 * Improve calibration and probability estimates
-
-
-
-## Dataset
-
-This project uses the LendingClub dataset available on Kaggle:
-https://www.kaggle.com/datasets/wordsforthewise/lending-club
 
 
 
