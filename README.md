@@ -37,10 +37,10 @@ We use SHAP (SHapley Additive exPlanations) to understand how features influence
 
 Key insights:
 
-* Debt-to-income ratio is a major driver of default risk
-* Higher interest rates increase likelihood of default
-* Some features have non-linear effects on predictions
-
+* Interest rate is the strongest driver of default risk
+* Loan term and credit score also significantly influence predictions
+* Loan-to-income ratio plays a role but is less dominant
+* Several features show non-linear effects on model output
 
 
 ## Project Workflow
