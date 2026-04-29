@@ -1,95 +1,112 @@
-# Credit Risk Modeling Using Kedro
+# Credit Risk Prediction Pipeline
 
-This project is an end-to-end credit risk modeling system built with [Kedro](https://kedro.org/), an open-source framework for data engineering and data science code, created by QuantumBlack Labs AI at McKinsey.
-
-## Dataset
-LendingClub, the loan information dataset used in this project, can be found [here](https://www.kaggle.com/datasets/wordsforthewise/lending-club).
-
-To reproduce this project, you need a Kaggle API key configured on your system (typically placed in `~/.kaggle/kaggle.json`) with the correct structure and permissions.
-
-**Structure of** `~/.kaggle/kaggle.json`:
-```json
-{
-    "username": "your_username",
-    "key": "your_key"
-}
-```
-
-**Permissions:**
-```bash
-chmod 600 ~/.kaggle/kaggle.json
-```
+This project is an end-to-end credit risk modeling system using the LendingClub dataset and built with [Kedro (QuantumBlack Labs at McKinsey)](https://kedro.org/), an open-source framework for data engineering and data science code. It compares Logistic Regression with XGBoost, and enforces a clean separation of concerns between data engineering, modeling, and evaluation steps.
 
 
-## Dependencies
+## Overview
 
-```bash
-conda env create -f environment.yml
-```
+This project builds a full ML workflow to assess whether a borrower is likely to default on a loan.
 
-### Kedro Dependencies
+Key goals:
 
-Inside the project directory (`./risk-model`), run the following:
+* Predict credit default risk
+* Compare linear vs non-linear models
+* Build a reproducible ML pipeline
+* Interpret model predictions using SHAP
 
-```bash
-pip install -r requirements.txt && pip install "kedro[pandas]"
-```
+
+
+## Results
+
+| Model               | Accuracy | ROC-AUC |
+| - | -- | -- |
+| Logistic Regression | 0.803    | 0.708    |
+| XGBoost             | 0.804    | 0.720    |
+
+**Finding:** Both models capture patterns in loan data similarly, with the XGBoost non-linear model at a minimal advantage.
+
+
+
+## Model Interpretability (SHAP)
+
+We use SHAP (SHapley Additive exPlanations) to understand how features influence model predictions.
+
+![SHAP Summary](/risk-model/data/08_reporting/shap_summary.png)
+
+Key insights:
+
+* Debt-to-income ratio is a major driver of default risk
+* Higher interest rates increase likelihood of default
+* Some features have non-linear effects on predictions
+
+
+
+## Project Workflow
+
+The pipeline follows a standard ML lifecycle:
+
+1. Data ingestion (LendingClub dataset)
+2. Data cleaning and preprocessing
+3. Feature engineering
+4. Train/test split
+5. Model training (Logistic Regression, XGBoost)
+6. Model selection (cross-validation)
+7. Hyperparameter tuning
+8. Model evaluation
+9. Interpretation with SHAP
+
+
+
+## Tech Stack
+
+* Python
+* Kedro
+* Pandas / NumPy
+* Scikit-learn
+* XGBoost
+* SHAP
+
 
 
 ## Project Structure
 
-The project currently consists of 7 different steps (pipelines):
-1. Data Ingestion
-2. Data Processing
-3. Feature Engineering
-4. Split Data
-5. Logistic Regression
-6. XGBoost
-7. Cross Validation (for picking the superior model)
-8. Hyperparameter Tuning
-9. Model Evaluation
-
-Pipelines used in this project can be found in `./risk-model/src/risk-model/pipelines`. Each of them was created using:
-
-```bash
-kedro pipeline create <pipeline_name>
+```
+credit-risk-kedro/
+│
+├── risk-model/        # Kedro project (pipelines & core logic)
+├── reports/           # Figures (SHAP plots)
+└── README.md          # This file
 ```
 
-and run using:
+> For detailed pipeline implementation and developer instructions, see the Kedro project README inside `risk-model/`.
+
+
+
+## Future Improvements
+
+* Deploy model as an API
+* Add more advanced feature engineering
+* Experiment with additional models (e.g., LightGBM, neural networks)
+* Improve calibration and probability estimates
+
+
+
+## Dataset
+
+This project uses the LendingClub dataset available on Kaggle:
+https://www.kaggle.com/datasets/wordsforthewise/lending-club
+
+
+
+## Getting Started
 
 ```bash
-kedro run --pipeline=<pipeline_name>
+git clone https://github.com/your-username/credit-risk-kedro.git
+cd credit-risk-kedro/risk-model
+conda env create -f environment.yml
+pip install -r requirements.txt
+kedro run
 ```
 
-The input dataset(s) and output dataset(s) of each pipeline must first be defined in the data catalog (`./risk-model/conf/base/catalog.yml`).
 
 
-The input dataset(s), output dataset(s), and functions used in each pipeline are set in `./risk-model/src/risk-model/pipelines/<pipeline_name>/pipeline.py`.
-
-
-The functionality of each step/pipeline (also known as a *node*) is defined in `./risk-model/src/risk-model/pipelines/<pipeline_name>/node.py`.
-
-
-## Notebooks
-
-Aside from creating a pipeline, we can use notebooks to explore our datasets. For example, during the data processing step, we can explore our data independently using a Jupyter notebook before building the `data_processing` pipeline (so that we don't have to run a pipeline every time, e.g. just to check the shape and columns of the dataset), as seen in `./risk-model/notebooks/data_processing.ipynb`.
-
-To be able to run the notebook, you first need to start the Kedro Jupyter Notebook server:
-
-```bash
-kedro jupyter notebook
-```
-
-## Parameters
-
-Each pipeline has a corresponding parameters file in `./risk-model/conf/base`, where, for instance, model parameters which need tuning can be defined.
-
-They are fed to the node in `pipeline.py` under `inputs` using`params:<param_name>` and fed to the `node.py` as a function parameter, unpacked using `**`; example usage: `**params`.
-
-## Important Note
-
-All `kedro` commands are run from the Kedro project directory (`./risk-model`).
-
-## TODO
-- adding a hyperparameter tuning pipeline
-- adding SHAP explanations
