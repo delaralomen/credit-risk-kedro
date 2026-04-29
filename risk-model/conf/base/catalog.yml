@@ -81,3 +81,8 @@ model_metrics:
 cross_val_metrics:
   type: pandas.CSVDataset
   filepath: data/08_reporting/cross_val_metrics.csv
+
+# SHAP
+shap_plot:
+  type: matplotlib.MatplotlibDataset
+  filepath: data/08_reporting/shap_summary.png
